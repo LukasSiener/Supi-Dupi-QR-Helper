@@ -160,6 +160,6 @@ public class QRCodeGeneratorGUI {
     }
 
     public static void main(String[] args) {
-
+        SwingUtilities.invokeLater(QRCodeGeneratorGUI::new);
     }
 }
