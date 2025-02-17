@@ -158,4 +158,8 @@ public class QRCodeGeneratorGUI {
             JOptionPane.showMessageDialog(frame, "Error exporting QR Code: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+    public static void main(String[] args) {
+
+    }
 }
