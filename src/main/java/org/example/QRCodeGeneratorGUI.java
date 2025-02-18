@@ -115,7 +115,6 @@ public class QRCodeGeneratorGUI {
             JOptionPane.showMessageDialog(frame, "Error generating QR Code: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-
     private void exportQRCodeAsPNG() {
         if (lastSaveDirectory == null) {
             JOptionPane.showMessageDialog(frame, "Please set a save location first.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -140,10 +139,15 @@ public class QRCodeGeneratorGUI {
             BufferedImage qrImage = MatrixToImageWriter.toBufferedImage(matrix);
             ImageIO.write(qrImage, "png", fileToSave);
             JOptionPane.showMessageDialog(frame, "QR Code exported successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+
+            // Clear the text field after successful export
+            textField.setText("");
+            descriptionField.setText("");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(frame, "Error exporting QR Code: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
 
     private void setSaveLocation() {
         JFileChooser fileChooser = new JFileChooser();
