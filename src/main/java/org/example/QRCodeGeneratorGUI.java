@@ -154,12 +154,18 @@ public class QRCodeGeneratorGUI {
         fileChooser.setDialogTitle("Select Save Location");
         fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
+        // Set the last selected directory if available
+        if (lastSaveDirectory != null) {
+            fileChooser.setCurrentDirectory(lastSaveDirectory);
+        }
+
         int userSelection = fileChooser.showSaveDialog(frame);
         if (userSelection == JFileChooser.APPROVE_OPTION) {
             lastSaveDirectory = fileChooser.getSelectedFile();
             JOptionPane.showMessageDialog(frame, "Save location set successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
         }
     }
+
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(QRCodeGeneratorGUI::new);
